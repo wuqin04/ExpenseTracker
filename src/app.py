@@ -1,6 +1,7 @@
 import customtkinter as ctk
-from components.widget import Button
-from functions.logic import add_expense
+from components.widget import TotalAmount
+from functions.logic import Direction
+
 
 SIZE = "800x800"
 TITLE = "ExpenseTracker"
@@ -12,9 +13,14 @@ class App(ctk.CTk):
         super().__init__()
         self.geometry(SIZE)
         self.title(TITLE)
+        self.grid_columnconfigure(0, weight=1)
+
         
-        self.add_expense = Button(self, text="Add Expense", command=add_expense)
-        self.add_expense.place(relx=.5, y=700, anchor="center")
+        # init all the widgets
+        self.total_amount = TotalAmount(self)
+
+        # place all the widgets
+        self.total_amount.grid(row=0, column=0, sticky=Direction.LEFT)
 
 app = App()
 app.mainloop()

@@ -1,6 +1,6 @@
 {
   "CTk": {
-    "fg_color": ["gray95", "gray10"]
+    "fg_color": ["#059DC0", "#059DC0"]
   },
   "CTkToplevel": {
     "fg_color": ["gray95", "gray10"]
@@ -143,12 +143,12 @@
     },
     "Windows": {
       "family": "Roboto",
-      "size": 13,
+      "size": 26,
       "weight": "normal"
     },
     "Linux": {
       "family": "Roboto",
-      "size": 13,
+      "size": 26,
       "weight": "normal"
     }
   }
