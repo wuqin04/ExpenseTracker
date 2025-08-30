@@ -1,6 +1,6 @@
 {
   "CTk": {
-    "fg_color": ["#059DC0", "#059DC0"]
+    "fg_color": ["#023E8A", "#023E8A"]
   },
   "CTkToplevel": {
     "fg_color": ["gray95", "gray10"]
@@ -8,30 +8,30 @@
   "CTkFrame": {
     "corner_radius": 6,
     "border_width": 0,
-    "fg_color": ["gray90", "gray13"],
-    "top_fg_color": ["gray85", "gray16"],
-    "border_color": ["gray65", "gray28"]
+    "fg_color": ["#0077B6", "#0077B6"],
+    "top_fg_color": ["#0077B6", "#0077B6"],
+    "border_color": ["#0077B6", "#0077B6"]
   },
   "CTkButton": {
     "corner_radius": 6,
     "border_width": 0,
-    "fg_color": ["#3a7ebf", "#1f538d"],
-    "hover_color": ["#325882", "#14375e"],
-    "border_color": ["#3E454A", "#949A9F"],
-    "text_color": ["#DCE4EE", "#DCE4EE"],
-    "text_color_disabled": ["gray74", "gray60"]
+    "fg_color": ["#0096C7", "#0096C7"],
+    "hover_color": ["#00B4D8", "#00B4D8"],
+    "border_color": ["#0096C7", "#0096C7"],
+    "text_color": ["#ADE8F4", "#ADE8F4"],
+    "text_color_disabled": ["#CAF0F8", "#CAF0F8"]
   },
   "CTkLabel": {
     "corner_radius": 0,
     "fg_color": "transparent",
-    "text_color": ["gray14", "gray84"]
+    "text_color": ["#ADE8F4", "#ADE8F4"]
   },
   "CTkEntry": {
     "corner_radius": 6,
     "border_width": 2,
     "fg_color": ["#F9F9FA", "#343638"],
     "border_color": ["#979DA2", "#565B5E"],
-    "text_color": ["gray14", "gray84"],
+    "text_color": ["#CAF0F8", "#CAF0F8"],
     "placeholder_text_color": ["gray52", "gray62"]
   },
   "CTkCheckBox": {
@@ -41,7 +41,7 @@
     "border_color": ["#3E454A", "#949A9F"],
     "hover_color": ["#325882", "#14375e"],
     "checkmark_color": ["#DCE4EE", "gray90"],
-    "text_color": ["gray14", "gray84"],
+    "text_color": ["#CAF0F8", "#CAF0F8"],
     "text_color_disabled": ["gray60", "gray45"]
   },
   "CTkSwitch": {
@@ -52,7 +52,7 @@
     "progress_color": ["#3a7ebf", "#1f538d"],
     "button_color": ["gray36", "#D5D9DE"],
     "button_hover_color": ["gray20", "gray100"],
-    "text_color": ["gray14", "gray84"],
+    "text_color": ["#CAF0F8", "#CAF0F8"],
     "text_color_disabled": ["gray60", "gray45"]
   },
   "CTkRadioButton": {
@@ -62,7 +62,7 @@
     "fg_color": ["#3a7ebf", "#1f538d"],
     "border_color": ["#3E454A", "#949A9F"],
     "hover_color": ["#325882", "#14375e"],
-    "text_color": ["gray14", "gray84"],
+    "text_color": ["#CAF0F8", "#CAF0F8"],
     "text_color_disabled": ["gray60", "gray45"]
   },
   "CTkProgressBar": {

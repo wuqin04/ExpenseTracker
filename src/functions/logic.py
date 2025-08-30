@@ -1,14 +1,9 @@
-from enum import StrEnum
-
-class Direction(StrEnum):
-    LEFT        = "W"
-    RIGHT       = "E"
-    UP          = "N"
-    DOWN        = "S"
-    FILLED      = "NSEW"
-    UP_LEFT     = "NW"
-    UP_RIGHT    = "NE"
-    DOWN_LEFT   = "SW"
-    DOWN_RIGHT  = "SE"
+import customtkinter as ctk
+from utils.helper import *
 
 BALANCE_AMOUNT = 1000
+
+def add_expense(object):
+    print("Adding Expense...")
+
+    object.configure(state="disabled")
