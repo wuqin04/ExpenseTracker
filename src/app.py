@@ -1,6 +1,6 @@
 import customtkinter as ctk
 from ui.widget import BalanceAmount, Button
-from functions.logic import add_expense
+from functions.logic import create_new_expense
 from utils.helper import Direction
 
 SIZE = "800x800"
@@ -15,14 +15,17 @@ class App(ctk.CTk):
         self.title(TITLE)
         
         # init all the widgets
-        self.balance_amount = BalanceAmount(self)
-        self.add_expense = Button(self, text="Add Expense", 
-                                  command=lambda: add_expense(self.add_expense))
+        self.balance_amount = BalanceAmount(master=self)
+        self.add_expense = Button(master=self, text="Create New Expense", 
+                                  command=lambda: create_new_expense(self.add_expense, self))
 
         # place all the widgets
         self.grid_columnconfigure(0, weight=1)
         self.balance_amount.grid(row=0, column=0, sticky=Direction.LEFT)
+        self.grid_rowconfigure(1, weight=1)
+        self.grid_rowconfigure(2, weight=1)
 
+        self.grid_rowconfigure(8, weight=1)
         self.grid_rowconfigure(9, weight=1)
         self.add_expense.grid(row=10, column=0, sticky=Direction.DOWN)
 
