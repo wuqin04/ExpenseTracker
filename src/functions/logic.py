@@ -10,3 +10,5 @@ class Direction(StrEnum):
     UP_RIGHT    = "NE"
     DOWN_LEFT   = "SW"
     DOWN_RIGHT  = "SE"
+
+BALANCE_AMOUNT = 1000

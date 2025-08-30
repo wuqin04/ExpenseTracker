@@ -1,5 +1,5 @@
 import customtkinter as ctk
-from functions.logic import Direction
+from functions.logic import BALANCE_AMOUNT, convertToStr
 
 class TotalAmount(ctk.CTkFrame):
     def __init__(self, master, **kwargs):
@@ -10,7 +10,7 @@ class TotalAmount(ctk.CTkFrame):
             **kwargs
         )
 
-        self.amount = ctk.CTkLabel(self, text="RM 1,000", 
+        self.amount = ctk.CTkLabel(self, text=f"RM {BALANCE_AMOUNT:,}", 
                                    text_color="#6AF2F0", width=250, height=80)
         self.amount.grid(row=0, column=0, padx=20)
 
