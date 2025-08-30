@@ -24,16 +24,19 @@ class ExpensePrompt(ctk.CTkFrame):
             **kwargs
         )
 
-        # init
+        # draw all the widgets
         self.input_entry = ctk.CTkEntry(self, placeholder_text="Enter Amount",
                                         width=250, height=30)
         self.add_button = ctk.CTkButton(self, text="Add Expense",
                                         command=logic.add_expense)
+        self.close_button = ctk.CTkButton(self, text="X", width=40, height=15,
+                                          command=logic.close_button)
         
-        # place
-        self.input_entry.grid(row=0, column=0, sticky=Direction.FILLED)
+        # place all the widgets
+        self.input_entry.grid(row=1, column=1, sticky=Direction.FILLED)
         self.grid_rowconfigure(0, weight=2)
-        self.add_button.grid(row=1, column=0, sticky=Direction.UP)
+        self.add_button.grid(row=2, column=1, sticky=Direction.UP)
+        self.close_button.grid(row=0, column=2, sticky=Direction.RIGHT)
 
 class Button(ctk.CTkButton):
     def __init__(self, master, **kwargs):
@@ -41,14 +44,5 @@ class Button(ctk.CTkButton):
             master,
             width=200,
             height=80,
-            **kwargs
-        )
-
-class InputEntry(ctk.CTkEntry):
-    def __init__(self, master, on_clicked=None, **kwargs):
-        super().__init__(
-            master, 
-            width=250,
-            height=30,
             **kwargs
         )

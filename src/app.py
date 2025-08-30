@@ -14,7 +14,7 @@ class App(ctk.CTk):
         self.geometry(SIZE)
         self.title(TITLE)
         
-        # init all the widgets
+        # draw all the widgets
         self.balance_amount = BalanceAmount(master=self)
         self.add_expense = Button(master=self, text="Create New Expense", 
                                   command=lambda: create_new_expense(self.add_expense, self))
