@@ -1,7 +1,7 @@
 import customtkinter as ctk
-from ui.widget import *
-from functions.logic import *
-from utils.helper import *
+from ui.widget import BalanceAmount, Button
+from functions.logic import add_expense
+from utils.helper import Direction
 
 SIZE = "800x800"
 TITLE = "ExpenseTracker"
