@@ -31,6 +31,5 @@ class App(ctk.CTk):
         self.create_new_expense.grid(row=10, column=0, sticky=Direction.DOWN)
 
 
-
 app = App()
 app.mainloop()
