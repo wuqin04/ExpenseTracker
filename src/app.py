@@ -14,10 +14,11 @@ class App(ctk.CTk):
         self.geometry(SIZE)
         self.title(TITLE)
         
+        
         # draw all the widgets
         self.balance_amount = BalanceAmount(master=self)
-        self.add_expense = Button(master=self, text="Create New Expense", 
-                                  command=lambda: create_new_expense(self.add_expense, self))
+        self.create_new_expense = Button(master=self, text="Create New Expense", 
+                                  command=lambda: create_new_expense(self, self.create_new_expense))
 
         # place all the widgets
         self.grid_columnconfigure(0, weight=1)
@@ -27,7 +28,7 @@ class App(ctk.CTk):
 
         self.grid_rowconfigure(8, weight=1)
         self.grid_rowconfigure(9, weight=1)
-        self.add_expense.grid(row=10, column=0, sticky=Direction.DOWN)
+        self.create_new_expense.grid(row=10, column=0, sticky=Direction.DOWN)
 
 
 app = App()

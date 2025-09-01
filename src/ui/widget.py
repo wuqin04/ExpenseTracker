@@ -2,6 +2,7 @@ import customtkinter as ctk
 import functions.logic as logic
 from utils.helper import Direction
 
+# show the balance amount on the top-left of screen
 class BalanceAmount(ctk.CTkFrame):
     def __init__(self, master, **kwargs):
         super().__init__(
@@ -16,6 +17,7 @@ class BalanceAmount(ctk.CTkFrame):
         # place
         self.amount.grid(row=0, column=0, padx=20)
 
+# draw the expense prompting 
 class ExpensePrompt(ctk.CTkFrame):
     def __init__(self, master, **kwargs):
         super().__init__(
@@ -30,7 +32,7 @@ class ExpensePrompt(ctk.CTkFrame):
         self.add_button = ctk.CTkButton(self, text="Add Expense",
                                         command=logic.add_expense)
         self.close_button = ctk.CTkButton(self, text="X", width=40, height=15,
-                                          command=logic.close_button)
+                                          command=lambda: logic.close_button(self))
         
         # place all the widgets
         self.input_entry.grid(row=1, column=1, sticky=Direction.FILLED)
