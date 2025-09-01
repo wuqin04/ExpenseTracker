@@ -3,7 +3,7 @@ from ui.widget import BalanceAmount, Button
 from functions.logic import create_new_expense
 from utils.helper import Direction
 
-SIZE = "800x800"
+SIZE = "600x600"
 TITLE = "ExpenseTracker"
 ctk.set_appearance_mode("dark")
 ctk.set_default_color_theme(r"src/theme/default.json")
