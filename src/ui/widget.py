@@ -11,11 +11,11 @@ class DisplayBalance(ctk.CTkFrame):
         
         # init
         self.balance = balance
-        self.amount = ctk.CTkLabel(self, text=f"RM {self.balance:,}", 
+        self.balance_label = ctk.CTkLabel(self, text=f"RM {self.balance:,}", 
                                      width=250, height=80)
         
         # place
-        self.amount.grid(row=0, column=0, padx=20)
+        self.balance_label.grid(row=0, column=0, padx=20)
 
     def update_balance(self):
         pass

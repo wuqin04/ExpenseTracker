@@ -45,7 +45,7 @@ class App(ctk.CTk):
         Debug("Closed Expense Frame")
 
         self.expense_frame.destroy()
-        self.new_expense_button.configure(state="enabled")
+        self.new_expense_button.configure(state="normal")
 
 app = App()
 app.mainloop()
