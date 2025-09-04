@@ -11,7 +11,7 @@ class DisplayBalance(ctk.CTkFrame):
         
         # init
         self.balance = balance
-        self.balance_label = ctk.CTkLabel(self, text=f"RM {self.balance:,}", 
+        self.balance_label = ctk.CTkLabel(self, text=f"RM {self.balance:,.2f}", 
                                      width=250, height=80)
         
         # place

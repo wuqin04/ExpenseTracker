@@ -39,9 +39,12 @@ class App(ctk.CTk):
         self.expense_frame.grid(row=5, column=0, sticky=Direction.UP)
 
     def save_expense(self):
-        
-        self.expense_amount = self.expense_frame.get_expense_amount()
-        Debug(f"You added RM{self.expense_amount}")
+        raw_amount = self.expense_frame.get_expense_amount()
+
+        is_valid = logic.validate_amount(raw_amount)
+
+        if is_valid:
+            Debug(f"{is_valid}")
 
     def close_expense_frame(self):
         Debug("Closed Expense Frame")
