@@ -1,5 +1,5 @@
 import customtkinter as ctk
-from utils.helper import Direction
+from utils.helper import Direction, Debug
 
 # show the balance amount on the top-left of screen
 class DisplayBalance(ctk.CTkFrame):
@@ -30,7 +30,7 @@ class ExpenseFrame(ctk.CTkFrame):
         )
 
         # draw all the widgets
-        self.expense_amount = ctk.CTkEntry(self, placeholder_text="Enter Amount",
+        self.expense_entry = ctk.CTkEntry(self, placeholder_text="Enter Amount",
                                         width=250, height=30)
         self.add_expense_button = ctk.CTkButton(self, text="Add Expense",
                                         command=on_save)
@@ -38,10 +38,15 @@ class ExpenseFrame(ctk.CTkFrame):
                                           command=on_close)
         
         # place all the widgets
-        self.expense_amount.grid(row=1, column=1, sticky=Direction.FILLED)
+        self.expense_entry.grid(row=1, column=1, sticky=Direction.FILLED)
         self.grid_rowconfigure(0, weight=2)
         self.add_expense_button.grid(row=2, column=1, sticky=Direction.UP)
         self.close_button.grid(row=0, column=2, sticky=Direction.RIGHT)
+
+    def get_expense_amount(self):
+        self.expense_amount = self.expense_entry.get()
+        return self.expense_amount
+
 
 class Button(ctk.CTkButton):
     def __init__(self, master, **kwargs):
