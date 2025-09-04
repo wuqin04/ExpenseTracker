@@ -1,5 +1,5 @@
 import customtkinter as ctk
-from utils.helper import Direction, Debug
+from helper import Direction, Debug
 
 # show the balance amount on the top-left of screen
 class DisplayBalance(ctk.CTkFrame):
@@ -48,7 +48,17 @@ class ExpenseFrame(ctk.CTkFrame):
         self.expense_amount = self.expense_entry.get()
         return self.expense_amount
 
+# create a message box which has a close button and ok button
+class MessageBox(ctk.CTkFrame):
+    def __init__(self, master, **kwargs):
+        super().__init__(
+            master, 
+            width=400,
+            height=400,
+            **kwargs
+        )
 
+# create a easier blueprint button
 class Button(ctk.CTkButton):
     def __init__(self, master, **kwargs):
         super().__init__(

@@ -1,7 +1,7 @@
 import customtkinter as ctk
-import functions.logic as logic
-from ui.widget import DisplayBalance, ExpenseFrame, Button
-from utils.helper import Direction, Debug
+import logic as logic
+from widget import DisplayBalance, ExpenseFrame, Button
+from helper import Direction, Debug
 
 SIZE = "600x600"
 TITLE = "ExpenseTracker"
@@ -45,11 +45,12 @@ class App(ctk.CTk):
 
         if not is_valid:
             # show error message box in future
+
             pass
 
         Debug(f"RM{result:,.2f} is deducted.")
 
-        # deduct balance amount 
+        # update balance amount 
         amount = result
         logic.update_balance(amount)
         self.balance_display.update_display(logic.BALANCE_AMOUNT)
