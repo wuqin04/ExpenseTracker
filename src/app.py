@@ -2,6 +2,7 @@ import customtkinter as ctk
 import logic as logic
 from widget import DisplayBalance, ExpenseFrame, Button
 from helper import Direction, Debug
+from controllers import ExpenseController
 
 SIZE = "600x600"
 TITLE = "ExpenseTracker"
@@ -17,7 +18,7 @@ class App(ctk.CTk):
         
         # draw all the widgets
         self.balance_display = DisplayBalance(master=self, balance=logic.BALANCE_AMOUNT)
-        self.new_expense_button = Button(master=self, text="Create New Expense", 
+        self.new_expense_button = Button(master=self, text="New Expense", 
                                   command=self.open_expense_frame)
 
         # place all the widgets
@@ -34,32 +35,8 @@ class App(ctk.CTk):
         Debug("Open Expense Frame")
 
         self.new_expense_button.configure(state="disabled")
-        self.expense_frame = ExpenseFrame(master=self, on_save=self.save_expense,
-                                          on_close=self.close_expense_frame)
-        self.expense_frame.grid(row=5, column=0, sticky=Direction.UP)
-
-    def save_expense(self):
-        raw_amount = self.expense_frame.get_expense_amount()
-
-        is_valid, result = logic.validate_amount(raw_amount)
-
-        if not is_valid:
-            # show error message box in future
-
-            pass
-
-        Debug(f"RM{result:,.2f} is deducted.")
-
-        # update balance amount 
-        amount = result
-        logic.update_balance(amount)
-        self.balance_display.update_display(logic.BALANCE_AMOUNT)
-        
-    def close_expense_frame(self):
-        Debug("Closed Expense Frame")
-
-        self.expense_frame.destroy()
-        self.new_expense_button.configure(state="normal")
+        self.expense_controller = ExpenseController(self, self.balance_display, 
+                                                    self.new_expense_button)
 
 app = App()
 app.mainloop()

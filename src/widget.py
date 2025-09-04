@@ -23,7 +23,7 @@ class DisplayBalance(ctk.CTkFrame):
 
 # draw the expense prompting 
 class ExpenseFrame(ctk.CTkFrame):
-    def __init__(self, master, on_save, on_close, **kwargs):
+    def __init__(self, master, on_add, on_close, **kwargs):
         super().__init__(
             master,
             fg_color="#03045E",
@@ -34,7 +34,7 @@ class ExpenseFrame(ctk.CTkFrame):
         self.expense_entry = ctk.CTkEntry(self, placeholder_text="Enter Amount",
                                         width=250, height=30)
         self.add_expense_button = ctk.CTkButton(self, text="Add Expense",
-                                        command=on_save)
+                                        command=lambda: on_add(self.get_amount()))
         self.close_button = ctk.CTkButton(self, text="X", width=40, height=15,
                                           command=on_close)
         
@@ -44,7 +44,7 @@ class ExpenseFrame(ctk.CTkFrame):
         self.add_expense_button.grid(row=2, column=1, sticky=Direction.UP)
         self.close_button.grid(row=0, column=2, sticky=Direction.RIGHT)
 
-    def get_expense_amount(self):
+    def get_amount(self):
         self.expense_amount = self.expense_entry.get()
         return self.expense_amount
 
