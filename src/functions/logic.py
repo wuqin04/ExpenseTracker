@@ -10,7 +10,7 @@ def validate_amount(amount: float):
     except ValueError:
         return (False, "Invalid amount.")
     
-    if amount < 0:
+    if amount <= 0:
         return (False, "Amount must be greater than 0.")
     
     if amount > BALANCE_AMOUNT:
