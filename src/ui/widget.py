@@ -17,8 +17,9 @@ class DisplayBalance(ctk.CTkFrame):
         # place
         self.balance_label.grid(row=0, column=0, padx=20)
 
-    def update_balance(self):
-        pass
+    def update_display(self, new_balance):
+        self.balance_label.configure(text=f"RM {new_balance:,.2f}")
+        Debug("Balance Display updated")        
 
 # draw the expense prompting 
 class ExpenseFrame(ctk.CTkFrame):

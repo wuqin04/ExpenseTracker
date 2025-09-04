@@ -16,13 +16,13 @@ class App(ctk.CTk):
         
         
         # draw all the widgets
-        self.balance_amount = DisplayBalance(master=self, balance=logic.BALANCE_AMOUNT)
+        self.balance_display = DisplayBalance(master=self, balance=logic.BALANCE_AMOUNT)
         self.new_expense_button = Button(master=self, text="Create New Expense", 
                                   command=self.open_expense_frame)
 
         # place all the widgets
         self.grid_columnconfigure(0, weight=1)
-        self.balance_amount.grid(row=0, column=0, sticky=Direction.LEFT)
+        self.balance_display.grid(row=0, column=0, sticky=Direction.LEFT)
         self.grid_rowconfigure(1, weight=1)
         self.grid_rowconfigure(2, weight=1)
 
@@ -41,11 +41,19 @@ class App(ctk.CTk):
     def save_expense(self):
         raw_amount = self.expense_frame.get_expense_amount()
 
-        is_valid = logic.validate_amount(raw_amount)
+        is_valid, result = logic.validate_amount(raw_amount)
 
-        if is_valid:
-            Debug(f"{is_valid}")
+        if not is_valid:
+            # show error message box in future
+            pass
 
+        Debug(f"RM{result:,.2f} is deducted.")
+
+        # deduct balance amount 
+        amount = result
+        logic.update_balance(amount)
+        self.balance_display.update_display(logic.BALANCE_AMOUNT)
+        
     def close_expense_frame(self):
         Debug("Closed Expense Frame")
 
