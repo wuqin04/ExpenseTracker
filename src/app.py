@@ -1,6 +1,6 @@
 import customtkinter as ctk
 import logic as logic
-from widget import DisplayBalance, ExpenseFrame, Button
+from widget import DisplayBalance, Button
 from helper import Direction, Debug
 from controllers import ExpenseController
 

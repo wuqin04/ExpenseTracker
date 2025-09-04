@@ -1,4 +1,3 @@
-import customtkinter as ctk
 import logic
 from helper import Debug, Direction
 from widget import ExpenseFrame

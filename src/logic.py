@@ -1,6 +1,4 @@
-import customtkinter as ctk
-import widget as ui
-from helper import Direction, Debug
+from helper import Debug
 
 BALANCE_AMOUNT = 1000.00
 
