@@ -12,8 +12,8 @@ class ExpenseController:
         self.err_msg_box = MessageBox(master=master)
 
         # place all the widgets
-        self.frame.grid(row=5, column=0, sticky=Direction.UP)
-
+        self.frame.show()
+        
     def add(self, raw_input):
         is_valid, result = logic.validate_amount(raw_input)
 

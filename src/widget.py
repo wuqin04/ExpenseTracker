@@ -44,6 +44,9 @@ class ExpenseFrame(ctk.CTkFrame):
         self.add_expense_button.grid(row=2, column=1, sticky=Direction.UP)
         self.close_button.grid(row=0, column=2, sticky=Direction.RIGHT)
 
+    def show(self):
+        self.grid(row=5, column=0, sticky=Direction.UP)
+
     def get_amount(self):
         self.expense_amount = self.expense_entry.get()
         return self.expense_amount
@@ -58,11 +61,13 @@ class MessageBox(ctk.CTkFrame):
             **kwargs
         )
 
+        # draw all the widgets
+        self.close_button = ctk.CTkButton(self, text="X", width=40, height=15,
+                                          command=None)
+
     def show(self, msg):
-        Debug(f"{msg}")
-        self.grid_rowconfigure(1, weight=1)
-        self.grid_rowconfigure(1, weight=1)
         self.grid(row=1, column=0, sticky=Direction.DOWN)
+        
 
 # create a easier blueprint button
 class Button(ctk.CTkButton):
