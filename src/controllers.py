@@ -8,18 +8,20 @@ class ExpenseController:
         # create all the widgets
         self.balance_display = balance_display
         self.new_expense_button = new_expense_button
-        self.frame = ExpenseFrame(master=master, on_add=self.add, on_close=self.close)
-        self.err_msg_box = MessageBox(master=master)
+        self.frame = ExpenseFrame(master=master, on_add=self.add, 
+                                  on_close=lambda: self.close(self.frame))
+        self.err_msg_box = MessageBox(master=master, on_clicked=None, 
+                                      on_close=lambda: self.close(self.err_msg_box))
 
         # place all the widgets
         self.frame.show()
-        
+
     def add(self, raw_input):
         is_valid, result = logic.validate_amount(raw_input)
 
         if not is_valid:
             self.err_msg_box.show(f"Error: {result}")
-            self.close()
+            self.close(self.frame)
             return
 
         Debug(f"RM{result:,.2f} is deducted.")
@@ -29,10 +31,10 @@ class ExpenseController:
         logic.update_balance(amount)
         self.balance_display.update_display(logic.BALANCE_AMOUNT)
 
-        self.close()
+        self.close(self.frame)
 
-    def close(self):
-        Debug("Closed Expense Frame")
+    def close(self, object):
+        Debug("Closed")
 
-        self.frame.destroy()
+        object.destroy()
         self.new_expense_button.configure(state="normal")

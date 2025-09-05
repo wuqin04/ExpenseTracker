@@ -53,7 +53,7 @@ class ExpenseFrame(ctk.CTkFrame):
 
 # create a message box which has a close button and ok button
 class MessageBox(ctk.CTkFrame):
-    def __init__(self, master, **kwargs):
+    def __init__(self, master, on_clicked, on_close, **kwargs):
         super().__init__(
             master, 
             width=400,
@@ -63,7 +63,7 @@ class MessageBox(ctk.CTkFrame):
 
         # draw all the widgets
         self.close_button = ctk.CTkButton(self, text="X", width=40, height=15,
-                                          command=None)
+                                          command=on_close)
 
     def show(self, msg):
         self.grid(row=1, column=0, sticky=Direction.DOWN)
