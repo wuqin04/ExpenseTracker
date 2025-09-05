@@ -1,6 +1,6 @@
 import logic
 from helper import Debug, Direction
-from widget import ExpenseFrame
+from widget import ExpenseFrame, MessageBox
 
 class ExpenseController:
     def __init__(self, master, balance_display, new_expense_button):
@@ -9,6 +9,7 @@ class ExpenseController:
         self.balance_display = balance_display
         self.new_expense_button = new_expense_button
         self.frame = ExpenseFrame(master=master, on_add=self.add, on_close=self.close)
+        self.err_msg_box = MessageBox(master=master)
 
         # place all the widgets
         self.frame.grid(row=5, column=0, sticky=Direction.UP)
@@ -17,8 +18,9 @@ class ExpenseController:
         is_valid, result = logic.validate_amount(raw_input)
 
         if not is_valid:
-            # show error message box in future
-            pass
+            self.err_msg_box.show(f"Error: {result}")
+            self.close()
+            return
 
         Debug(f"RM{result:,.2f} is deducted.")
 

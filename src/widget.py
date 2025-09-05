@@ -58,6 +58,12 @@ class MessageBox(ctk.CTkFrame):
             **kwargs
         )
 
+    def show(self, msg):
+        Debug(f"{msg}")
+        self.grid_rowconfigure(1, weight=1)
+        self.grid_rowconfigure(1, weight=1)
+        self.grid(row=1, column=0, sticky=Direction.DOWN)
+
 # create a easier blueprint button
 class Button(ctk.CTkButton):
     def __init__(self, master, **kwargs):
